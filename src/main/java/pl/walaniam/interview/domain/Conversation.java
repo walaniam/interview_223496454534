@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class Conversation {
 
-    private final String id;
+    private final int id;
 
-    public Conversation(String id) {
+    public Conversation(int id) {
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -19,7 +19,7 @@ public class Conversation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Conversation that = (Conversation) o;
-        return id.equals(that.id);
+        return id == that.id;
     }
 
     @Override

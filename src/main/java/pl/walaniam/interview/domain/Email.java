@@ -4,23 +4,20 @@ import java.util.Objects;
 
 public class Email {
 
-    private final String id;
-    private String conversationId;
+    private final int id;
+    private final Conversation conversation;
 
-    public Email(String id) {
+    public Email(int id, Conversation conversation) {
         this.id = id;
+        this.conversation = conversation;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public String getConversationId() {
-        return conversationId;
-    }
-
-    public void setConversationId(String conversationId) {
-        this.conversationId = conversationId;
+    public Conversation getConversation() {
+        return conversation;
     }
 
     @Override
@@ -28,20 +25,20 @@ public class Email {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Email email = (Email) o;
-        return id.equals(email.id) &&
-                Objects.equals(conversationId, email.conversationId);
+        return id == email.id &&
+                conversation.equals(email.conversation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, conversationId);
+        return Objects.hash(id, conversation);
     }
 
     @Override
     public String toString() {
         return "Email{" +
-                "id='" + id + '\'' +
-                ", conversationId='" + conversationId + '\'' +
+                "id=" + id +
+                ", conversation=" + conversation +
                 '}';
     }
 }
