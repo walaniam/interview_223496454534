@@ -6,8 +6,6 @@ import pl.walaniam.interview.domain.Conversation;
 import pl.walaniam.interview.exercise.ConversationProcessor;
 import pl.walaniam.interview.processing.EmailGenerator;
 
-import java.util.stream.IntStream;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class EvaluationTest {
@@ -26,14 +24,12 @@ public class EvaluationTest {
 
     @Test
     public void testMe() {
+        throw new RuntimeException("Missing implementation");
+        // assertExpectedSize(...)
+    }
 
-        emailGenerator.runGenerator().join();
-
-        IntStream.range(0, TOTAL_CONVERSATION_COUNT)
-                .mapToObj(Conversation::new)
-                .forEach(conversation -> assertThat(underTest.conversationSizeOf(conversation))
-                        .isEqualTo(EXPECTED_MAILS_IN_CONVERSATION)
-                );
+    private void assertExpectedSize(Conversation conversation) {
+        assertThat(underTest.conversationSizeOf(conversation)).isEqualTo(EXPECTED_MAILS_IN_CONVERSATION);
     }
 
     @After
